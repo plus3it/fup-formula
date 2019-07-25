@@ -1,0 +1,5 @@
+spel-repository:
+name-computer:
+
+  # URL from which to fetch the yum repository-definition(s) RPM
+  repo_rpm:
