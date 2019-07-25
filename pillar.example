@@ -1,8 +1,6 @@
-spel-repository:
+custom-repos:
   lookup:
+    # A colon-separated list of RPMs and URLs from which to fetch them
+    pkgs:
+      spel-release: https://<BUCKET_NAME>.s3.amazonaws.com/spel-release-7.0-1.el7.noarch.rpm
 
-    # Name of the RPM containing yum repository-definition(s)
-    repo_rpm_name:
-
-    # URL from which to fetch the yum repository-definition(s) RPM
-    repo_rpm_url:
