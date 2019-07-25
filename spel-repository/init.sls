@@ -16,12 +16,13 @@
 
 
 {#- Iterate over the dict #}
-{%- for rpm, repo in repo_dict.iteritems() %}
+{%- if repo_dict|length  %}
+  {%- for rpm, repo in repo_dict.iteritems() %}
 spelRepo-install-{{ rpm }}:
   pkg.installed:
     - sources:
       - {{ rpm }}: {{ repo }}
     - allow_updates: True
     - skip_verify: True
-{%- endfor %}
-
+  {%- endfor %}
+{%- endif %}
