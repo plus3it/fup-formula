@@ -1,4 +1,8 @@
 spel-repository:
+  lookup:
 
-  # URL from which to fetch the yum repository-definition(s) RPM
-  repo_rpm:
+    # Name of the RPM containing yum repository-definition(s)
+    repo_rpm_name:
+
+    # URL from which to fetch the yum repository-definition(s) RPM
+    repo_rpm_url:

@@ -1,7 +1,0 @@
-{#- Grab the repo_rpm to use it in the defaults #}
-{%- set rpm_url = salt.grains.get(
-    'spel-repository:repo_rpm',
-    salt.pillar.get('spel-repository:repo_rpm')
-) %}
-
-
