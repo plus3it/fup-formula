@@ -1,6 +1,6 @@
 # custom-yum-repo-formula
 
-Enterprise Linux salt formula to configure a system to act as yum client for custom RPM repositories.
+A [salt formula](https://docs.saltstack.com/en/latest/topics/development/conventions/formulas.html) to configure an Enterprise Linux (RHEL, CentOS, etc.) system to act as yum client for custom RPM repositories.
 
 This formula is only designed to configure a host's yum repositories by way of repository-configuration RPMs. This formula does _not_ write `/etc/yum.repos.d` files, directly.
 
