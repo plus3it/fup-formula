@@ -8,20 +8,20 @@
 {#- Set location for helper-files #}
 {%- set files = tpldir ~ '/files' %}
 
-{#- fetch our rpms/urls as a dict #}
-{%- set repo_dict = salt.grains.get(
-    'custom-repos:lookup:pkgs',
-    salt.pillar.get('custom-repos:lookup:pkgs')
+{#- fetch our packages/urls as a dict #}
+{%- set package_dict = salt.grains.get(
+    'urly-packages:lookup:pkgs',
+    salt.pillar.get('urly-packages:lookup:pkgs')
 ) %}
 
 
 {#- Iterate over the dict #}
-{%- if repo_dict|length  %}
-  {%- for rpm, repo in repo_dict.iteritems() %}
-spelRepo-install-{{ rpm }}:
+{%- if package_dict|length  %}
+  {%- for package, pkgUrl in package_dict.iteritems() %}
+package-install-{{ package }}:
   pkg.installed:
     - sources:
-      - {{ rpm }}: {{ repo }}
+      - {{ package }}: {{ pkgUrl }}
     - allow_updates: True
     - skip_verify: True
   {%- endfor %}
