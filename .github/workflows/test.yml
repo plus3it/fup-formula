@@ -17,7 +17,7 @@ jobs:
         salt_state:
           - fup
         salt_pillar_root:
-          - ./tests/pillar/test-empty
+          - ./tests/pillar/test-main
     with:
       salt-os-version: ${{ matrix.os_version }}
       salt-state: ${{ matrix.salt_state }}
