@@ -11,18 +11,15 @@
 {#- fetch our packages/urls as a dict #}
 {%- set package_dict = salt.grains.get(
     'urly-packages:lookup:pkgs',
-    salt.pillar.get('urly-packages:lookup:pkgs')
+    salt.pillar.get('urly-packages:lookup:pkgs', {})
 ) %}
 
-
 {#- Iterate over the dict #}
-{%- if package_dict|length  %}
-  {%- for package, pkgUrl in package_dict.iteritems() %}
+{%- for package, pkgUrl in package_dict.items() %}
 package-install-{{ package }}:
   pkg.installed:
     - sources:
       - {{ package }}: {{ pkgUrl }}
     - allow_updates: True
     - skip_verify: True
-  {%- endfor %}
-{%- endif %}
+{%- endfor %}
